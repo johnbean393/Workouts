@@ -14,7 +14,8 @@ enum Level: String, Codable, CaseIterable {
 	case intermediate
 	case expert
 	
-	var index: Int {
+	/// Private computed property returning the index of the level in the "Level.allCases" array
+	private var index: Int {
 		return Level.allCases.firstIndex(of: self)!
 	}
 	

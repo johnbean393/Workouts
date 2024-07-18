@@ -11,8 +11,10 @@ import SwiftUI
 
 class WorkoutData: ValueDataModel<Workout> {
 	
+	/// Shared variable to keep all workout data in sync
 	static let shared: WorkoutData = WorkoutData()
 	
+	/// Initializer for WorkoutData
 	required init(appDirName: String = Bundle.main.applicationName ?? Bundle.main.description, datastoreName: String = "workoutData") {
 		super.init(appDirName: appDirName, datastoreName: datastoreName)
 	}

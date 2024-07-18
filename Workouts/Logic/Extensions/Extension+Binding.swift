@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 extension Binding where Value: MutableCollection, Value: RangeReplaceableCollection, Value.Element: Identifiable {
+	
+	/// Function that provides filtering to a array of bindings
 	func filter(_ isIncluded: @escaping (Value.Element)->Bool) -> Binding<[Value.Element]> {
 		return Binding<[Value.Element]>(
 			get: {
@@ -29,4 +31,5 @@ extension Binding where Value: MutableCollection, Value: RangeReplaceableCollect
 			}
 		)
 	}
+	
 }

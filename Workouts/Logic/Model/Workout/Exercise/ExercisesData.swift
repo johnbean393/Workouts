@@ -41,6 +41,7 @@ class ExercisesData {
 		}
 	}
 	
+	/// Picker view used in forms, allowing the user to select an exercise
 	struct ExercisePickerView: View {
 		
 		let exercises: [Exercise] = ExercisesData.default.exercises

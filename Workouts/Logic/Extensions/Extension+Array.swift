@@ -9,6 +9,7 @@ import Foundation
 
 extension Array where Iterator.Element == String {
 	
+	/// Function that adds an index to each string in an array, then joins them with new lines
 	func joinLines(_ textPrecedingIndex: String?) -> String {
 		// Unwrap provided text
 		let providedText: String = textPrecedingIndex ?? ""

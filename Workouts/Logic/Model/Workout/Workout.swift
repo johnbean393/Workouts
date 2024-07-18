@@ -9,20 +9,25 @@ import Foundation
 
 struct Workout: Identifiable, Codable, Hashable {
 	
+	/// Property to conform to Identifiable
 	var id: UUID = UUID()
 	
-	private var creationTime: Date = Date.now
-	
+	/// Property storing the workout's name
 	var name: String = "New Workout \(Date.now.ISO8601Format().prefix(10))"
 	
+	/// Property storing the workout's exercise
 	var exercise: Exercise = ExercisesData.default.exercises.first!
 	
+	/// Property storing the workout's current status
 	var status: WorkoutStatus = .planned
 	
+	/// Property storing the workout's start time
 	var startTime: Date?
+	/// Computed poperty returning whether workout has started
 	var didStart: Bool {
 		return self.startTime != nil
 	}
+	/// Computed poperty returning the time elaped since the workout started
 	var timeElapsedSecs: Double? {
 		guard let startTime = self.startTime else {
 			return nil
@@ -30,11 +35,15 @@ struct Workout: Identifiable, Codable, Hashable {
 		return Date.now.timeIntervalSince(startTime)
 	}
 
+	/// Property storing the workout's pause times
 	var pauseTimes: [Date] = []
+	/// Property storing the workout's resume times
 	var resumeTimes: [Date] = []
+	/// Computed poperty returning whether workout has been resumed
 	var didResume: Bool {
 		return self.pauseTimes.count == self.resumeTimes.count
 	}
+	/// Computed poperty returning the total rest time taken during the workout
 	var totalRestTime: Double {
 		// Define total variable
 		var total: Double = 0
@@ -55,10 +64,13 @@ struct Workout: Identifiable, Codable, Hashable {
 		return total
 	}
 	
+	/// Property storing the workout's end time
 	var endTime: Date?
+	/// Computed poperty returning whether workout is complete
 	var didEnd: Bool {
 		return self.endTime != nil
 	}
+	/// Computed poperty returning the total time working out (total time  - rest time)
 	var totalTimeSecs: Double? {
 		guard let startTime = self.startTime, let endTime = self.endTime else {
 			return nil
