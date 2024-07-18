@@ -1,0 +1,15 @@
+{
+  "originHash" : "5b47c2ae5007b65c7be4b0b17ec77b32e7a81d93894fdb89af7cb4553a31ec02",
+  "pins" : [
+    {
+      "identity" : "extensionkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnbean393/ExtensionKit",
+      "state" : {
+        "branch" : "main",
+        "revision" : "b7dc5839ec39dd1deef59b54798a7da1bed31557"
+      }
+    }
+  ],
+  "version" : 3
+}
