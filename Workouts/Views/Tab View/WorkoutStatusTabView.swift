@@ -15,39 +15,64 @@ struct WorkoutStatusTabView: View {
 	@EnvironmentObject private var workoutData: WorkoutData
 	
 	var body: some View {
-		TabView(selection: $viewController.selectedStatus) {
-			ForEach(workoutStatuses) { status in
-				NavigationSplitView {
-					column
-				} detail: {
-					detail
-				}
-				.padding()
-				.tabItem {
-					Label(
-						status.rawValue.capitalized,
-						systemImage: status.iconName
-					)
-				}
-				.tag(status)
-			}
+//		TabView(selection: $viewController.selectedStatus) {
+//			ForEach(workoutStatuses) { status in
+//				NavigationSplitView {
+//					column
+//				} detail: {
+//					detail
+//				}
+//				.padding()
+//				.tabItem {
+//					Label(
+//						status.rawValue.capitalized,
+//						systemImage: status.iconName
+//					)
+//				}
+//				.tag(status)
+//			}
+//		}
+		TabBarView {
+			#if os(iOS)
+			iOSColumn
+			#else
+			macOSColumn
+			#endif
+		} detail: {
+			detail
 		}
 		.onChange(of: viewController.selectedStatus) {
 			viewController.selectedWorkout = nil
 		}
 	}
 	
-	var column: some View {
+	var iOSColumn: some View {
 		WorkoutNavigationColumnView()
-			.navigationTitle("Workouts")
-			.if(viewController.selectedStatus == .planned) { view in
-				view.toolbar {
-					ToolbarItem(placement: .topBarLeading) {
-						NewWorkoutButton()
-					}
+		.navigationTitle("Workouts")
+		.if(viewController.selectedStatus == .planned) { view in
+			view.toolbar {
+#if os(iOS)
+				ToolbarItem(placement: .topBarLeading) {
+					NewWorkoutButton()
 				}
+#endif
 			}
+		}
 	}
+	
+	var macOSColumn: some View {
+		VStack(spacing: 0) {
+			WorkoutNavigationColumnView()
+				.navigationTitle("Workouts")
+			if viewController.selectedStatus == .planned {
+				Divider()
+				NewWorkoutButton()
+					.padding(.vertical, 5)
+			}
+		}
+	}
+	
+	
 	
 	var detail: some View {
 		Group {

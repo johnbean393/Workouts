@@ -34,6 +34,8 @@
 		203BE5272C48F1AC007D745B /* RingShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203BE5262C48F1AC007D745B /* RingShape.swift */; };
 		203BE5292C490CC9007D745B /* Extension+UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203BE5282C490CC9007D745B /* Extension+UIDevice.swift */; };
 		203BE52B2C49181F007D745B /* FinishedWorkoutInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203BE52A2C49181F007D745B /* FinishedWorkoutInfoView.swift */; };
+		20BD9CB32C4A402F007B4D98 /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BD9CB22C4A402F007B4D98 /* TypeAliases.swift */; };
+		20BD9CB52C4A41E5007B4D98 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BD9CB42C4A41E5007B4D98 /* TabBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,8 @@
 		203BE5262C48F1AC007D745B /* RingShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingShape.swift; sourceTree = "<group>"; };
 		203BE5282C490CC9007D745B /* Extension+UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIDevice.swift"; sourceTree = "<group>"; };
 		203BE52A2C49181F007D745B /* FinishedWorkoutInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedWorkoutInfoView.swift; sourceTree = "<group>"; };
+		20BD9CB22C4A402F007B4D98 /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
+		20BD9CB42C4A41E5007B4D98 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,7 @@
 		203BE4FF2C483353007D745B /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				20BD9CB22C4A402F007B4D98 /* TypeAliases.swift */,
 				203BE5162C48D060007D745B /* Extensions */,
 				203BE5002C48335B007D745B /* View Controllers */,
 				203BE5012C48337C007D745B /* Model */,
@@ -216,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				203BE51B2C48DE31007D745B /* WorkoutStatusTabView.swift */,
+				20BD9CB42C4A41E5007B4D98 /* TabBarView.swift */,
 				203BE50F2C4840F7007D745B /* Toolbar */,
 				203BE5102C484100007D745B /* Navigation Column */,
 				203BE5132C4841DF007D745B /* Detail */,
@@ -318,6 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20BD9CB32C4A402F007B4D98 /* TypeAliases.swift in Sources */,
 				203BE5182C48D0A2007D745B /* Extension+Array.swift in Sources */,
 				203BE5292C490CC9007D745B /* Extension+UIDevice.swift in Sources */,
 				203BE50C2C483DBC007D745B /* NewWorkoutButton.swift in Sources */,
@@ -335,6 +342,7 @@
 				203BE5122C484192007D745B /* WorkoutListRowView.swift in Sources */,
 				203BE4FB2C482F82007D745B /* WorkoutData.swift in Sources */,
 				203BE4DA2C481C33007D745B /* Workout_TimerApp.swift in Sources */,
+				20BD9CB52C4A41E5007B4D98 /* TabBarView.swift in Sources */,
 				203BE5252C48F15B007D745B /* GradientRing.swift in Sources */,
 				203BE5032C483396007D745B /* ContentViewViewController.swift in Sources */,
 				203BE4E92C481C54007D745B /* Workout.swift in Sources */,
@@ -494,8 +502,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pattonium.scripts.Workouts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -533,8 +542,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pattonium.scripts.Workouts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

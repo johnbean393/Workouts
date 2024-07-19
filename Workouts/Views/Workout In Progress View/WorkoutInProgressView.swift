@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
+#if canImport(UIKit)
 import UIKit
+#endif
 import ExtensionKit
 
 struct WorkoutInProgressView: View {
@@ -50,7 +52,7 @@ struct WorkoutInProgressView: View {
 			}
 			.onReceive(
 				NotificationCenter.default.publisher(
-					for: UIApplication.willTerminateNotification
+					for: OSApplication.willTerminateNotification
 				), perform: { output in
 					// Code to run on will terminate
 					pauseWorkout()
@@ -83,14 +85,18 @@ struct WorkoutInProgressView: View {
 				.padding(12)
 				buttons
 			}
+			#if os(iOS)
 			if UIDevice.current.isPad {
-				iPadDescription
+				largeScreenDescription
 			}
+			#else
+			largeScreenDescription
+			#endif
 		}
 		.padding()
 	}
 	
-	var iPadDescription: some View {
+	var largeScreenDescription: some View {
 		VStack(alignment: .leading, spacing: 45) {
 			Text("**Exercise:**\n\(viewController.selectedWorkout?.exercise.name ?? "nil")")
 			Text(

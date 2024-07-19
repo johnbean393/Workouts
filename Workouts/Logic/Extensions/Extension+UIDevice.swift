@@ -6,8 +6,11 @@
 //
 
 import Foundation
+#if canImport(UIKit)
 import UIKit
+#endif
 
+#if os(iOS)
 extension UIDevice {
 	
 	/// Computed property returning whether the device is an iPad
@@ -21,3 +24,4 @@ extension UIDevice {
 	}
 	
 }
+#endif

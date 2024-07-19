@@ -34,6 +34,9 @@ struct FinishedWorkoutInfoView: View {
 	}
 	
 	var restPercentage: Int {
+		// Avoid div 0 error
+		if (workTime + restTime).isZero { return 0 }
+		// Calculate & return percentage
 		return Int(round(restTime / (workTime + restTime) * 100))
 	}
 	
